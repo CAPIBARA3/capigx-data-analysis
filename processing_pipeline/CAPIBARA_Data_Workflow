@@ -45,7 +45,7 @@ Capability/Availability" color=lightblue]
 	proposalData -> publication [label=dashed]
 	transientData -> publication [label=dashed]
 	subgraph cluster_legend {
-		a [label="Continuous = real-time processes" color=gray style="-"]
+		a [label="Continuous = real-time processes" color=gray style=""]
 		b [label="Dashed = manual processes" color=gray style=dashed]
 		c [label="Orange = Observation/Data Source" color=orange]
 		d [label="Blue = Onboard Processing" color=lightblue]
