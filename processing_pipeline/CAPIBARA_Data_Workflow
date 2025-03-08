@@ -3,7 +3,8 @@ digraph "CAPIBARA Data Workflow" {
 	node [color=lightblue fontname=Arial fontsize=12 shape=box style="rounded, filled"]
 	monitoring [label="Transient Monitoring mode" color=orange]
 	proposal [label="Object-Oriented Mode" color=orange]
-	externalAlert [label="Receive GCN Alert" color=orange]
+	externalAlert [label="Receive GCN Alert
+(Always Listening)" color=orange]
 	processing [label="Onboard Processing
 (Transient Analysis)" color=lightblue]
 	alertAnalysis [label="Assesment of Follow-Up
@@ -11,6 +12,7 @@ Capability/Availability" color=lightblue]
 	notransient [label="No Transient Detection" color=lightblue]
 	transientDetection [label="Trasient Detection" color=lightblue]
 	available [label="Current FoV & not monitoring other transient" color=lightblue]
+	interferometry [label="Location via Intensity Interferometry" color=lightblue]
 	alert [label="GCN Alert
 (real-time alert)" color=lightblue]
 	gammaray [label="Continued Gamma-Ray Observation" color=orange]
@@ -30,7 +32,8 @@ Capability/Availability" color=lightblue]
 	processing -> transientDetection
 	alertAnalysis -> available
 	notransient -> monitoring
-	transientDetection -> alert
+	transientDetection -> interferometry
+	interferometry -> alert
 	transientDetection -> xray
 	transientDetection -> gammaray
 	available -> xray
