@@ -1,2 +1,7 @@
-polar_coordinates/.ipynb_checkpoints
+# general
 .DS_Store
+
+# notebooks
+polar_coordinates/.ipynb_checkpoints
+.virtual_documents/skycoverage
+anaconda_projects/
