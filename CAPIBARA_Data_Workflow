@@ -1,0 +1,61 @@
+digraph "CAPIBARA Data Workflow" {
+	dpi=600 rankdir=TB size=12
+	node [color=lightblue fontname=Arial fontsize=12 shape=box style="rounded, filled"]
+	monitoring [label="Transient Monitoring mode" color=orange]
+	proposal [label="Object-Oriented Mode" color=orange]
+	externalAlert [label="Receive GCN Alert
+(Always Listening)" color=orange]
+	processing [label="Onboard Processing
+(Transient Analysis)" color=lightblue]
+	alertAnalysis [label="Assesment of Follow-Up
+Capability/Availability" color=lightblue]
+	notransient [label="No Transient Detection" color=lightblue]
+	transientDetection [label="Trasient Detection" color=lightblue]
+	available [label="Current FoV & not monitoring other transient" color=lightblue]
+	interferometry [label="Location via Intensity Interferometry" color=lightblue]
+	alert [label="GCN Alert
+(real-time alert)" color=lightblue]
+	gammaray [label="Continued Gamma-Ray Observation" color=orange]
+	xray [label="X-ray Transient Follow-Up" color=orange]
+	obs [label="Targeted Observations
+(Gamma-/X-ray)" color=orange]
+	storage [label="Temporary Onboard Storage" color=lightblue]
+	archive [label="Earth-Based Archive" color=lightgreen]
+	proposalData [label="Proposal Authors
+(6-month period)" color=lightgreen]
+	transientData [label=CAPIBARA color=lightgreen]
+	publication [label="Public Data Release" color=lightgreen]
+	monitoring -> processing
+	proposal -> processing
+	externalAlert -> alertAnalysis
+	processing -> notransient
+	processing -> transientDetection
+	alertAnalysis -> available
+	notransient -> monitoring
+	transientDetection -> interferometry
+	interferometry -> alert
+	transientDetection -> xray
+	transientDetection -> gammaray
+	available -> xray
+	available -> gammaray
+	proposal -> obs
+	xray -> storage
+	gammaray -> storage
+	obs -> storage
+	storage -> archive [label="data downlink" style=dashed]
+	archive -> proposalData [label="" style=dashed]
+	archive -> transientData [label="" style=dashed]
+	proposalData -> publication [style=dashed]
+	transientData -> publication [style=dashed]
+	subgraph cluster_legend {
+		a [label="Continuous = real-time processes" color=gray style=""]
+		b [label="Dashed = manual processes" color=gray style=dashed]
+		c [label="Orange = Observation/Data Source" color=orange]
+		d [label="Blue = Onboard Processing" color=lightblue]
+		e [label="Green = Earth-based Processing" color=lightgreen]
+		a -> b [color=white]
+		b -> c [color=white]
+		c -> d [color=white]
+		d -> e [color=white]
+	}
+}
