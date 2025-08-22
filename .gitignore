@@ -1,5 +1,6 @@
 # general
 .DS_Store
+.idea/
 
 # notebooks
 polar_coordinates/.ipynb_checkpoints
